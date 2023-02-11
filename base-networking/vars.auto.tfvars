@@ -2,14 +2,16 @@ region            = "us-east-1"
 product_name      = "fastag"
 env               = "stage"
 
+//tags
+owner_value      = "pratikbhawsar26@gmail.com"
+creator_value = "pratikbhawsar26@gmail.com"
 
 // VPC related variables
 vpc_cidr_block = "10.20.0.0/16"
 
-
-//tags
-owner_key        = "Owner"
-owner_value      = "prashantp@lambdatest.com"
+// Subnet related variables
+subnet_availability_zone_a = "us-east-1a"
+subnet_availability_zone_b = "us-east-1b"
 
 // Public Subnet CIDR
 public_subnet_cidr_block_a = "10.20.1.0/24"

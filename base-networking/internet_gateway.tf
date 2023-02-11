@@ -7,7 +7,7 @@
 ####################################################################################
 
 module "setu_app_internet_gateway" {
-  source       = "git::https://github.com/pratikbhawsar26/setu-infra-modules//vpc?ref=v1.0.0"
+  source       = "git::https://github.com/pratikbhawsar26/setu-infra-modules//internet_gateway?ref=v1.0.1"
   product_name = var.product_name
   env          = var.env
   name         = "igw"
