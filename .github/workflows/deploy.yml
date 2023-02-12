@@ -115,7 +115,7 @@ jobs:
           if [[ '${{ github.event_name }}' == 'pull_request' ]]; then
             terraform plan -out workspace.plan -input=false -lock=false
           else
-            terraform plan -out workspace.plan -input=false
+            terraform plan -out workspace.plan -input=false -var="username=${{ secrets.DBUSERNAME }}" -var="password=${{ secrets.DBPASSWORD }}"
           fi
 
       - name: Terraform Plan Show
@@ -134,4 +134,4 @@ jobs:
 
       - name: Terraform apply
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'apply'
-        run: terraform apply --auto-approve -input=false workspace.plan
+        run: terraform apply --auto-approve -input=false workspace.plan -var="username=${{ secrets.DBUSERNAME }}" -var="password=${{ secrets.DBPASSWORD }}"
