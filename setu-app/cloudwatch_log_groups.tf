@@ -6,7 +6,7 @@
 ####                                                                            ####
 ####################################################################################
 
-module "cloudwatch_log_group_raven" {
+module "cloudwatch_log_group_setu" {
   source     = "git::https://github.com/pratikbhawsar26/setu-infra-modules//cloudwatch_log_groups?ref=v1.0.5"
   group_name = "setu/${var.product_name}/${var.env}"
   tags = merge(
