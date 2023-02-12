@@ -27,6 +27,33 @@ permissions:
   contents: read
 
 jobs:
+  detect:
+    name: Started ${{ github.event.inputs.action }} for ${{ github.event.inputs.product }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+        
+      - name: Select env on Workflow Dispatch
+        id: branch_check
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "Running on branch ${{ github.ref }}"
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "::set-output name=env_name::stage"
+          elif [ "${{ github.ref }}" = "refs/heads/stage" ]; then
+            echo "::set-output name=env_name::stage"
+          elif [ "${{ github.ref }}" = "refs/heads/prod" ]; then
+            echo "::set-output name=env_name::prod"
+          else
+            echo "::set-output name=env_name::None"
+          fi
+          echo "Running on product ${{ steps.pr-labels.outputs.labels }}"
+          echo "::set-output name=product::${{ github.event.inputs.product }}"
+    outputs:
+      env_name: ${{ steps.branch_check.outputs.env_name || steps.branch_check_pr.outputs.env_name }}
+      product: ${{ steps.branch_check.outputs.product || steps.branch_check_pr.outputs.product }}
+      
+      
   terraform:
     name: terraform-pipeline
     runs-on: ubuntu-latest
