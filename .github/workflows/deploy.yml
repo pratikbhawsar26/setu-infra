@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     environment:
-      name: ${{ needs.detect.outputs.env_name }}_${{ needs.detect.outputs.product }}
+      name: stage
     env:
       TF_IN_AUTOMATION: true
     defaults:
