@@ -1,6 +1,11 @@
 # setu-app-infra
 ![Setu architecture drawio](https://user-images.githubusercontent.com/82140743/218332701-43af7a5e-7415-47d7-86f5-cb84f90a21db.png)
 
+## Network resource mapping
+![Screenshot 2023-02-11 at 5 49 43 PM](https://user-images.githubusercontent.com/82140743/218334978-b89b91c0-c778-4bdf-b802-75485152287f.png)
+
+
+
 # Terraform Project Structure
 This repository contains two Terraform templates to deploy a complete infrastructure on AWS for the above architecture. The templates are designed to be run in a specific order, with base-networking being run first and setu-app being run second.
 
@@ -29,6 +34,7 @@ After running the setu-app template, you will receive two DNS names for the Appl
 
 ## GitHub Actions Deployment
 A ```deploy.yml``` GitHub Actions workflow is also provided in the ```.github/workflows``` directory. This workflow can be used to deploy your Terraform resources directly from GitHub using an AWS OIDC role.
+![Screenshot 2023-02-12 at 11 54 27 PM](https://user-images.githubusercontent.com/82140743/218334988-10a2adcf-39fa-4449-bcca-3eddc1bad0b3.png)
 
 ### Prerequisites
 Before running the Terraform templates, you must have the following:
