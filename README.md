@@ -27,6 +27,9 @@ The setu-app template builds upon the resources created in base-networking to cr
 
 After running the setu-app template, you will receive two DNS names for the Application Load Balancer (ALB): a public DNS name and a private DNS name. The public DNS name can be accessed from anywhere which will be pointing to public ECS service, while the private DNS name can only be accessed through the public ECS service and Bastion host.
 
+## GitHub Actions Deployment
+A ```deploy.yml``` GitHub Actions workflow is also provided in the ```.github/workflows``` directory. This workflow can be used to deploy your Terraform resources directly from GitHub using an AWS OIDC role.
+
 ### Prerequisites
 Before running the Terraform templates, you must have the following:
 
