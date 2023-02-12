@@ -28,7 +28,6 @@ permissions:
 
 jobs:
   terraform:
-    needs: detect
     name: terraform-pipeline
     runs-on: ubuntu-latest
     timeout-minutes: 30
