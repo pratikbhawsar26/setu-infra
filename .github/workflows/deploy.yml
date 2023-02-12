@@ -47,14 +47,15 @@ jobs:
           else
             echo "::set-output name=env_name::None"
           fi
-          echo "Running on product ${{ steps.pr-labels.outputs.labels }}"
+          echo "Running on product ${{ github.event.inputs.product }}"
           echo "::set-output name=product::${{ github.event.inputs.product }}"
     outputs:
-      env_name: ${{ steps.branch_check.outputs.env_name || steps.branch_check_pr.outputs.env_name }}
-      product: ${{ steps.branch_check.outputs.product || steps.branch_check_pr.outputs.product }}
+      env_name: ${{ steps.branch_check.outputs.env_name }}
+      product: ${{ steps.branch_check.outputs.product }}
       
       
   terraform:
+    needs: detect
     name: terraform-pipeline
     runs-on: ubuntu-latest
     timeout-minutes: 30
