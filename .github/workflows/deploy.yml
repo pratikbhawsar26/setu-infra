@@ -134,4 +134,4 @@ jobs:
 
       - name: Terraform apply
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'apply'
-        run: terraform apply -var="username=${{ secrets.DBUSERNAME }}" -var="password=${{ secrets.DBPASSWORD }}" --auto-approve -input=false workspace.plan 
+        run: terraform apply --auto-approve -input=false workspace.plan 
