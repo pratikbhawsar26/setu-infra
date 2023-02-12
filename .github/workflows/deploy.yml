@@ -112,7 +112,7 @@ jobs:
       - name: Terraform Plan
         if: ( github.event_name == 'pull_request' && steps.validate.outcome == 'success' ) || github.event_name == 'workflow_dispatch'
         run: |
-          if [[ '${{ github.event_name }}' == 'pull_request' ]]; then
+          if [[ '${{ needs.detect.outputs.product }}' == 'base-networking' ]]; then
             terraform plan -out workspace.plan -input=false -lock=false
           else
             terraform plan -var="username=${{ secrets.DBUSERNAME }}" -var="password=${{ secrets.DBPASSWORD }}" -out workspace.plan -input=false
