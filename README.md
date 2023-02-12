@@ -5,6 +5,7 @@
 ![Screenshot 2023-02-11 at 5 49 43 PM](https://user-images.githubusercontent.com/82140743/218334978-b89b91c0-c778-4bdf-b802-75485152287f.png)
 
 
+### Raw modules used to create Infrastructure templates -->    https://github.com/pratikbhawsar26/setu-infra-modules.git
 
 # Terraform Project Structure
 This repository contains two Terraform templates to deploy a complete infrastructure on AWS for the above architecture. The templates are designed to be run in a specific order, with base-networking being run first and setu-app being run second.
